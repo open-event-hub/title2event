@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+
+  <title>Title2Event</title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jointjs/2.1.0/joint.css" />
+
+  
+  <link href='https://open-event-hub.github.io/title2event/vendor/bootstrap/css/bootstrap.min.css' rel="stylesheet">
+
+  
+  <link href='https://open-event-hub.github.io/title2event/vendor/fontawesome-free/css/all.min.css' rel="stylesheet" type="text/css">
+
+
+  
+  <link href='https://open-event-hub.github.io/title2event/css/clean-blog.min.css' rel="stylesheet">
+  <style>
+    .container {
+      max-width: 1580px;
+    }
+
+    .card-link+.card-link {
+      margin-left: 0rem;
+    }
+  </style>
+
+</head>
+
+<body>
+
+   
+ <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="https://open-event-hub.github.io/title2event"><img src="https://open-event-hub.github.io/title2event/img/t2e-logo.png" width="60" /> Title2Event</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          
+            <li class="nav-item">
+                <a class="nav-link" href="https://open-event-hub.github.io/title2event/data_example">
+                    <span>Data Example</span>
+                </a>
+            </li>
+          
+            <li class="nav-item">
+                <a class="nav-link" href="https://open-event-hub.github.io/title2event/data_distribution">
+                    <span>Data Distribution</span>
+                </a>
+            </li>
+          
+            <li class="nav-item">
+                <a class="nav-link" href="https://open-event-hub.github.io/title2event/hierarchical_event_type_schema">
+                    <span>Hierarchical Event Type Schema</span>
+                </a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  
+  <header class="masthead" style="background-image: url('/img/star.png');">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Title2Event</h1>
+            <span class="subheading">Benchmarking Open Event Extraction with a Large-scale Chinese Title Dataset.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <div class="container mt-5">
+    
+  <button class="btn btn-primary mt-4 float-right" id="ShowAnother">SHOW ANOTHER</button>
+  <p>
+    <b>DocumentID: </b><span class="bg-light" id="DocumentID"></span>
+  </p>
+  <p>
+    <b>Title: </b><span id="DocumentTitle"></span>
+  </p>
+  <p>
+    <b>Content: </b><span id="DocumentContent"></span>
+  </p>
+  <p>
+    <b>Event Type: </b><span id="DocumentEventType"></span>
+  </p>
+
+  </div>
+
+  <hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+
+          <li class="list-inline-item">
+            <a href="#">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; THUKEG 2020</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <script src='https://open-event-hub.github.io/title2event/vendor/jquery/jquery.min.js'></script>
+  <script src='https://open-event-hub.github.io/title2event/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>
+
+  
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dagre/0.8.5/dagre.min.js"></script>
+  <script src='https://open-event-hub.github.io/title2event/js/nomnoml.min.js'></script>
+  
+
+<script>
+function showAnother(example) {
+  $('#DocumentID').text(example.id)
+  $('#DocumentTitle').text(example.title)
+  example.events.forEach(event => {
+    event.mention.forEach(({sent_id, trigger_word}) => {
+      example.content[sent_id].sentence = example.content[sent_id].sentence.replace(trigger_word, `<mark title='${event.type}'>${trigger_word}</mark>`)
+    })
+  });
+  $('#DocumentContent').html(example.content.map(con=>con.sentence).join(' '))
+  $('#DocumentContent mark').mouseover(e => {
+    $('#DocumentEventType').text(e.target.title)
+  })
+  $('#DocumentContent mark').mouseout(e => {
+    $('#DocumentEventType').text('')
+  })
+}
+fetch('https:\/\/open\-event\-hub\.github\.io\/title2event\/data\/train\.json')
+  .then((res) => res.json())
+  .then((data) => {
+    showAnother(data[0])
+    $('#ShowAnother').click(() => {
+      showAnother(data[Math.floor((Math.random()*data.length)+1)])
+    })
+  })
+</script>
+
+</body>
+
+</html>

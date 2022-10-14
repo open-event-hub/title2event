@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://open-event-hub.github.io/title2event/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>https://open-event-hub.github.io/title2event/data_distribution/</loc>
+  </url><url>
+    <loc>https://open-event-hub.github.io/title2event/data_example/</loc>
+  </url><url>
+    <loc>https://open-event-hub.github.io/title2event/hierarchical_event_type_schema/</loc>
+  </url><url>
+    <loc>https://open-event-hub.github.io/title2event/categories/</loc>
+  </url><url>
+    <loc>https://open-event-hub.github.io/title2event/tags/</loc>
+  </url>
+</urlset>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+
+  <title>Title2Event</title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jointjs/2.1.0/joint.css" />
+
+  
+  <link href='https://open-event-hub.github.io/title2event/vendor/bootstrap/css/bootstrap.min.css' rel="stylesheet">
+
+  
+  <link href='https://open-event-hub.github.io/title2event/vendor/fontawesome-free/css/all.min.css' rel="stylesheet" type="text/css">
+
+
+  
+  <link href='https://open-event-hub.github.io/title2event/css/clean-blog.min.css' rel="stylesheet">
+  <style>
+    .container {
+      max-width: 1580px;
+    }
+
+    .card-link+.card-link {
+      margin-left: 0rem;
+    }
+  </style>
+
+</head>
+
+<body>
+
+   
+ <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="https://open-event-hub.github.io/title2event"><img src="https://open-event-hub.github.io/title2event/img/t2e-logo.png" width="60" /> Title2Event</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          
+            <li class="nav-item">
+                <a class="nav-link" href="https://open-event-hub.github.io/title2event/data_example">
+                    <span>Data Example</span>
+                </a>
+            </li>
+          
+            <li class="nav-item">
+                <a class="nav-link" href="https://open-event-hub.github.io/title2event/data_distribution">
+                    <span>Data Distribution</span>
+                </a>
+            </li>
+          
+            <li class="nav-item">
+                <a class="nav-link" href="https://open-event-hub.github.io/title2event/hierarchical_event_type_schema">
+                    <span>Hierarchical Event Type Schema</span>
+                </a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  
+  <header class="masthead" style="background-image: url('/img/star.png');">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Title2Event</h1>
+            <span class="subheading">Benchmarking Open Event Extraction with a Large-scale Chinese Title Dataset.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <div class="container mt-5">
+    
+<h2>Document Topic</h2>
+<div id="mountNode"></div>
+<h2>Event Type Distribution (<span id="topic">All</span>)</h2>
+<div id="mountNodeDist"></div>
+
+  </div>
+
+  <hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+
+          <li class="list-inline-item">
+            <a href="#">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; THUKEG 2020</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <script src='https://open-event-hub.github.io/title2event/vendor/jquery/jquery.min.js'></script>
+  <script src='https://open-event-hub.github.io/title2event/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>
+
+  
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dagre/0.8.5/dagre.min.js"></script>
+  <script src='https://open-event-hub.github.io/title2event/js/nomnoml.min.js'></script>
+  
+<script type="text/javascript" src="https://unpkg.com/@antv/g2plot@latest/dist/g2plot.min.js"></script>
+
+
+<script>
+async function main() {
+  const wcData = await (await fetch('https:\/\/open-event-hub.github.io\/title2event\/data\/TopicCnt.json')).json()
+  const roseData = await (await fetch('https:\/\/open-event-hub.github.io\/title2event\/data\/TypeDistributionGivenTopic.json')).json()
+  const roseCfg = {
+    data: Object.entries(roseData.All).map(([k, v])=>({k,v})),
+    height: 1000,
+    xField: 'k',
+    yField: 'v',
+    seriesField: 'k',
+    radius: 0.9,
+    legend: {
+      position: 'right',
+    },
+    label: false,
+    interactions: [{ type: 'element-active' }],
+  }
+  const rosePlot = new G2Plot.Rose('mountNodeDist', roseCfg);
+  rosePlot.render();
+  const wordCloud = new G2Plot.WordCloud('mountNode', {
+      data: Object.entries(wcData).map(([k, v])=>({k,v})),
+      height: 600,
+      wordField: 'k',
+      weightField: 'v',
+      colorField: 'k',
+      wordStyle: {
+        fontFamily: 'Verdana',
+        fontSize: [20, 108],
+        rotation: 0,
+        padding: 0.5,
+      },
+      
+      
+      random: () => 0.5,
+    });
+  wordCloud.on('element:click', (e) => {
+    $('#topic').text(e.data.data.text)
+    roseCfg.data = Object.entries(roseData[e.data.data.text]).map(([k, v])=>({k,v}))
+    rosePlot.update(roseCfg)
+  });
+  wordCloud.render();
+}
+main()
+</script>
+
+</body>
+
+</html>
