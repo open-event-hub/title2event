@@ -1,0 +1,23 @@
+baseURL = "https://open-event-hub.github.io/title2event"
+languageCode = "en-us"
+title = "Title2Event"
+canonifyurls = true
+publishDir = "docs"
+[params]
+  description = "Benchmarking Open Event Extraction with a Large-scale Chinese Title Dataset."
+  bannerImage = "/img/star.png"
+  logoImage = "/img/t2e-logo.png"
+
+[menu]
+  [[menu.main]]
+    name="Data Example"
+    url="/data_example"
+    weight="2"
+  [[menu.main]]
+    name="Data Distribution"
+    url="/data_distribution"
+    weight="3"
+  [[menu.main]]
+    name="Hierarchical Event Type Schema"
+    url="/hierarchical_event_type_schema"
+    weight="4"

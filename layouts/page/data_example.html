@@ -1,0 +1,45 @@
+{{ define "main" }}
+  <button class="btn btn-primary mt-4 float-right" id="ShowAnother">SHOW ANOTHER</button>
+  <p>
+    <b>DocumentID: </b><span class="bg-light" id="DocumentID"></span>
+  </p>
+  <p>
+    <b>Title: </b><span id="DocumentTitle"></span>
+  </p>
+  <p>
+    <b>Content: </b><span id="DocumentContent"></span>
+  </p>
+  <p>
+    <b>Event Type: </b><span id="DocumentEventType"></span>
+  </p>
+{{ end }}
+
+{{ define "extrajs" }}
+{{ $data := (jsonify .Site.Data.train) | resources.FromString "data/train.json" }}
+<script>
+function showAnother(example) {
+  $('#DocumentID').text(example.id)
+  $('#DocumentTitle').text(example.title)
+  example.events.forEach(event => {
+    event.mention.forEach(({sent_id, trigger_word}) => {
+      example.content[sent_id].sentence = example.content[sent_id].sentence.replace(trigger_word, `<mark title='${event.type}'>${trigger_word}</mark>`)
+    })
+  });
+  $('#DocumentContent').html(example.content.map(con=>con.sentence).join(' '))
+  $('#DocumentContent mark').mouseover(e => {
+    $('#DocumentEventType').text(e.target.title)
+  })
+  $('#DocumentContent mark').mouseout(e => {
+    $('#DocumentEventType').text('')
+  })
+}
+fetch('{{ $data.Permalink }}')
+  .then((res) => res.json())
+  .then((data) => {
+    showAnother(data[0])
+    $('#ShowAnother').click(() => {
+      showAnother(data[Math.floor((Math.random()*data.length)+1)])
+    })
+  })
+</script>
+{{ end }}

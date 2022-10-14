@@ -1,0 +1,167 @@
+// Global styling for this template
+body {
+  font-size: 20px;
+  color: $gray-900;
+  @include serif-font;
+}
+
+p {
+  line-height: 1.5;
+  margin: 30px 0;
+  a {
+    text-decoration: underline;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+  @include sans-serif-font;
+}
+
+a {
+  color: $gray-900;
+  @include transition-all;
+  &:focus,
+  &:hover {
+    color: $primary;
+  }
+}
+
+blockquote {
+  font-style: italic;
+  color: $gray-600;
+}
+
+.section-heading {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 60px;
+}
+
+.caption {
+  font-size: 14px;
+  font-style: italic;
+  display: block;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+::-moz-selection {
+  color: $white;
+  background: $primary;
+  text-shadow: none;
+}
+
+::selection {
+  color: $white;
+  background: $primary;
+  text-shadow: none;
+}
+
+img::selection {
+  color: $white;
+  background: transparent;
+}
+
+img::-moz-selection {
+  color: $white;
+  background: transparent;
+}
+
+.block {
+  padding: 100px 50px;
+  text-align: center;
+  font-size: 25px;
+
+  pre {
+    font-size: 15px;
+    text-align: left;
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  }
+}
+.block-dark {
+  @extend .block;
+  background: $dark;
+  color: $white;
+  pre {
+    color: $white;
+  }
+  table {
+    color: $white;
+  }
+}
+.block-dark-table-head {
+  @extend .block-dark;
+  padding: 30px;
+  margin: 20px 0px;
+  font-size: 50px;
+}
+.block-light {
+  @extend .block;
+  background: $light;
+  color: $black;
+  pre {
+    color: $black;
+  }
+}
+
+.auto-vertical-center {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.code-center {
+  margin-left:auto;
+  margin-right:auto;
+  width:fit-content
+}
+
+$table-normal-size: 18px;
+.leaderboard-table {
+  font-size: $table-normal-size;
+  text-align: center;
+  width: 100%;
+  table-layout: fixed;
+}
+.col-rank {
+  width: 5%;
+}
+.col-model {
+  width: 29%;
+}
+.col-overall {
+  width: 10%;
+}
+.col-acc {
+  width: 8%;
+}
+.detail-head {
+  font-size: $table-normal-size * 2/3;
+  word-wrap: break-word;
+}
+.align-middle {
+  vertical-align: middle;
+}
+.paper-link {
+  color: purple;
+  font-size: $table-normal-size - 2px;
+}
+.affliation {
+  font-style: italic;
+  font-size: $table-normal-size - 2px;
+}
+.human {
+  font-style: italic;
+}

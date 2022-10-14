@@ -1,0 +1,82 @@
+{{ define "main" }}
+<div id="mountNode"></div>
+{{ end }}
+
+{{ define "extrajs" }}
+<script src="https://gw.alipayobjects.com/os/lib/antv/g6/3.8.5/dist/g6.min.js"></script>
+{{ $data := (jsonify .Site.Data.EventTypeTree) | resources.FromString "data/EventTypeTree.json" }}
+<script>
+fetch('{{ $data.Permalink }}')
+  .then((res) => res.json())
+  .then((data) => {
+    const width = document.getElementById('mountNode').scrollWidth;
+    const height = document.getElementById('mountNode').scrollHeight || 3500;
+    const graph = new G6.TreeGraph({
+      container: 'mountNode',
+      width,
+      height,
+      modes: {
+        default: [
+          {
+            type: 'collapse-expand',
+            onChange: function onChange(item, collapsed) {
+              const data = item.get('model').data;
+              data.collapsed = collapsed;
+              return true;
+            },
+          },
+          'drag-canvas',
+          'zoom-canvas',
+        ],
+      },
+      defaultNode: {
+        size: 26,
+        anchorPoints: [
+          [0, 0.5],
+          [1, 0.5],
+        ],
+      },
+      defaultEdge: {
+        type: 'cubic-horizontal',
+      },
+      layout: {
+        type: 'compactBox',
+        direction: 'H',
+        getId: d=>d.id,
+        getHeight: ()=>32,
+        getWidth: ()=>32,
+        getVGap: ()=>10,
+        getHGap: ()=>100,
+      },
+    });
+
+    graph.node(function (node) {
+      return {
+        label: node.id,
+        labelCfg: {
+          offset: 10,
+          position:  node.children.length > 0 ? 'left' : 'right',
+        },
+      };
+    });
+    const graphData = {}
+    function addNode(graph, id) {
+        if (!graph.hasOwnProperty(id)) {
+            graph[id] = {id,root:true,children:[]}
+        }
+    }
+    Object.entries(data).forEach(([k, v]) => {
+        addNode(graphData, k)
+        addNode(graphData, v)
+        graphData[v].children.push(graphData[k])
+        graphData[k].root = false
+    });
+    const root = Object.values(graphData).filter(v=>v.root)[0]
+    root.children.sort((a, b) => a.children.length - b.children.length)
+    graph.data(root);
+    graph.render();
+    graph.fitView();
+  });
+
+</script>
+{{ end }}

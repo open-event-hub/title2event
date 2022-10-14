@@ -1,0 +1,56 @@
+{{ define "main" }}
+<h2>Document Topic</h2>
+<div id="mountNode"></div>
+<h2>Event Type Distribution (<span id="topic">All</span>)</h2>
+<div id="mountNodeDist"></div>
+{{ end }}
+
+{{ define "extrajs" }}
+<script type="text/javascript" src="https://unpkg.com/@antv/g2plot@latest/dist/g2plot.min.js"></script>
+{{ $data := (jsonify .Site.Data.TopicCnt) | resources.FromString "data/TopicCnt.json" }}
+{{ $dataDist := (jsonify .Site.Data.TypeDistributionGivenTopic) | resources.FromString "data/TypeDistributionGivenTopic.json" }}
+<script>
+async function main() {
+  const wcData = await (await fetch('{{ $data.Permalink }}')).json()
+  const roseData = await (await fetch('{{ $dataDist.Permalink }}')).json()
+  const roseCfg = {
+    data: Object.entries(roseData.All).map(([k, v])=>({k,v})),
+    height: 1000,
+    xField: 'k',
+    yField: 'v',
+    seriesField: 'k',
+    radius: 0.9,
+    legend: {
+      position: 'right',
+    },
+    label: false,
+    interactions: [{ type: 'element-active' }],
+  }
+  const rosePlot = new G2Plot.Rose('mountNodeDist', roseCfg);
+  rosePlot.render();
+  const wordCloud = new G2Plot.WordCloud('mountNode', {
+      data: Object.entries(wcData).map(([k, v])=>({k,v})),
+      height: 600,
+      wordField: 'k',
+      weightField: 'v',
+      colorField: 'k',
+      wordStyle: {
+        fontFamily: 'Verdana',
+        fontSize: [20, 108],
+        rotation: 0,
+        padding: 0.5,
+      },
+      // 返回值设置成一个 [0, 1) 区间内的值，
+      // 可以让每次渲染的位置相同（前提是每次的宽高一致）。
+      random: () => 0.5,
+    });
+  wordCloud.on('element:click', (e) => {
+    $('#topic').text(e.data.data.text)
+    roseCfg.data = Object.entries(roseData[e.data.data.text]).map(([k, v])=>({k,v}))
+    rosePlot.update(roseCfg)
+  });
+  wordCloud.render();
+}
+main()
+</script>
+{{ end }}
