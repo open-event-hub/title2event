@@ -2,7 +2,7 @@ baseURL = "https://open-event-hub.github.io/title2event"
 languageCode = "en-us"
 title = "Title2Event"
 canonifyurls = true
-publishDir = "docs"
+
 [params]
   description = "Benchmarking Open Event Extraction with a Large-scale Chinese Title Dataset."
   bannerImage = "/img/star.png"
