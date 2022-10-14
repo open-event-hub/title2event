@@ -1,6 +1,6 @@
 # Title2Event Homepage
 
-The website is hosted on Github. The url is <https://title2event.github.io/>.
+The website is hosted on Github. The url is <https://open-event-hub.github.io/title2event>.
 
 # 项目依赖
 
@@ -18,12 +18,12 @@ The website is hosted on Github. The url is <https://title2event.github.io/>.
 2. 进入目录
 3. `hugo server` 可以本地查看效果，方便调试
 4. 按照自己到需求修改若干页面和信息，第一次跑可能需要熟悉一下，相对还是比较简单的，很容易上手
-5. `hugo -d docs` 将网页生成到docs目录，#因为github page是在docs路径上deploy的
-6. `git add、commit、push`，将修改push到master
+5. `git add、commit、push`，将修改push到master
+6. `sh action.sh` 会自动生成public，并且推送到`gh-pages`分支
 7. 等待自动部署，可以在github页面搜索Actions进去看具体部署情况，一分钟多就ok了
-8. 查看效果 https://title2event.github.io/
+8. 查看效果 https://open-event-hub.github.io/title2event
 
-## 修改leaderboard
+## 修改leaderboard,这里待修改
 
 1. 更改`data/leaderboard.json`
 2. 运行`hugo server`本地查看效果
