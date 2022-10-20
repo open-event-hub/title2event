@@ -9,15 +9,16 @@ canonifyurls = true
   logoImage = "/img/t2e-logo.png"
 
 [menu]
-  [[menu.main]]
-    name="Data Example"
-    url="/data_example"
-    weight="2"
-  [[menu.main]]
-    name="Data Distribution"
-    url="/data_distribution"
-    weight="3"
-  [[menu.main]]
-    name="Hierarchical Event Type Schema"
-    url="/hierarchical_event_type_schema"
-    weight="4"
+  #[[menu.main]]
+  #  name="Data Example"
+  #  url="/data_example"
+  #  weight="2"
+
+  #[[menu.main]]
+    #name="Data Distribution"
+    #url="/data_distribution"
+    #weight="3"
+  #[[menu.main]]
+    #name="Hierarchical Event Type Schema"
+    #url="/hierarchical_event_type_schema"
+    #weight="4"

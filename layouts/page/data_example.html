@@ -32,6 +32,7 @@ function showAnother(example) {
   $('#DocumentContent mark').mouseout(e => {
     $('#DocumentEventType').text('')
   })
+  
 }
 fetch('{{ $data.Permalink }}')
   .then((res) => res.json())
