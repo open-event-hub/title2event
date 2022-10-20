@@ -51,18 +51,6 @@
                 </a>
             </li>
           
-            <li class="nav-item">
-                <a class="nav-link" href="https://open-event-hub.github.io/title2event/data_distribution">
-                    <span>Data Distribution</span>
-                </a>
-            </li>
-          
-            <li class="nav-item">
-                <a class="nav-link" href="https://open-event-hub.github.io/title2event/hierarchical_event_type_schema">
-                    <span>Hierarchical Event Type Schema</span>
-                </a>
-            </li>
-          
         </ul>
       </div>
     </div>
@@ -95,43 +83,29 @@
             <p class="card-text">Title2Event is a open event extraction dataset with large-scale human annotated Chinese title. Title2Event contains more than
 42,000 news titles in 34 topics collected from
 Chinese web pages. It is collected by researcher at Harbin Institute of Technology and QQ Browser Search.(最后我们把数据集扩充到了xxx条)</p>
-            
+            <p class="card-text">Our paper is coming soon.</p>
+            <a href="" class="btn btn-primary">(coming soon)</a>
           </div>
         </div>
-        <div class="card">
-          <div class="card-body">
-            <h2>What is MAVEN?</h2>
-            <p class="card-text">Title2Event is a event detection dataset with massive general domain human annotated data. It contains 4,480 documents; 118,732 event mentions and 168 event types. It is collected by researcher at <a href="https://www.tsinghua.edu.cn/en/" class="card-link">Tsinghua University</a> and <a href="https://ai.weixin.qq.com/" class="card-link">WeChat AI</a>.</p>
-            <p class="card-text">For more details, please refer to our EMNLP 2020 paper:</p>
-            <a href="https://arxiv.org/pdf/2004.13590.pdf" class="btn btn-primary">(Wang et al., 2020)</a>
-          </div>
-        </div>
+        
         <div class="card">
           <div class="card-body">
             <h2>Quick Start</h2>
             <p class="card-text">Title2Event is distributed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="card-link">CC BY-SA 4.0 License</a>. The dataset can be obtained below:</p>
-            <a href="https://cloud.tsinghua.edu.cn/d/874e0ad810f34272a03b/" class="btn btn-primary mb-2">Tsinghua Cloud</a><br/>
-            <a href="https://drive.google.com/drive/folders/19Q0lqJE6A98OLnRqQVhbX3e6rG4BVGn8?usp=sharing" class="btn btn-primary">Google Drive</a>
+            <a href="https://pan.baidu.com/s/14v0OC2unLC-_BgKgzUm7WQ?pwd=pq66" class="btn btn-primary mb-2">Baidu Netdisk</a><br/>
+            <a href="https://drive.google.com/drive/folders/1LyGNgn-tf-1shb9oBproBGogHoVQXqOp?usp=sharing" class="btn btn-primary">Google Drive</a>
             <p class="card-text">For the reference codes and detailed data format, please refer to our github repository.</p>
-            <a href="https://github.com/THU-KEG/MAVEN-dataset" class="btn btn-primary">Github repo</a>
-            <p class="card-text">Once you have finished your model, you can submit your predictions to our competition hosted on CodaLab.</p>
-            <a href="https://competitions.codalab.org/competitions/27320" class="btn btn-primary">CodaLab</a>
+            <a href="https://github.com/open-event-hub/title2event.github.io" class="btn btn-primary">Github repo</a>
+            
             <p class="card-text">If you want your results to be appeared on the official leaderboard here, please read the guideline following.</p>
-            <a href="#" class="btn btn-primary">Leaderboard Guideline</a>
+            <a href="https://github.com/open-event-hub/title2event.github.io" class="btn btn-primary">Leaderboard Guideline</a>
           </div>
         </div>
         <div class="card">
           <div class="card-body">
             <h2>Citation</h2>
-            <p class="card-text">If you use Title2Event in your research, please cite our paper.</p>
-            <pre class="text-left">
-@inproceedings{ wang2020MAVEN,
-  title={ {MAVEN}: A Massive General Domain Event Detection Dataset },
-  author={ Wang, Xiaozhi and Wang, Ziqi and Han, Xu and Jiang, Wangyi and Han, Rong and Liu, Zhiyuan and Li, Juanzi and Li, Peng and Lin, Yankai and Zhou, Jie },
-  booktitle={ Proceedings of EMNLP 2020 },
-  year={2020}
-}
-            </pre>
+            <p class="card-text">Coming soon.</p>
+            
           </div>
         </div>
       </div>
@@ -221,152 +195,7 @@ Chinese web pages. It is collected by researcher at Harbin Institute of Technolo
             </table>
           </div>
         </div>
-        <div class="card">
-          <div class="card-header text-center">Leaderboard</div>
-          <div class="card-body">
-            <table class="table text-center">
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col" rowspan="2">Rank</th>
-                  <th scope="col" rowspan="2">Model</th>
-                  <th scope="col" colspan="3">Micro</th>
-                  <th scope="col" colspan="3">Macro</th>
-                </tr>
-                <tr>
-                  <th scope="col">F1</th>
-                  <th scope="col">Precission</th>
-                  <th scope="col">Recall</th>
-                  <th scope="col">F1</th>
-                  <th scope="col">Precission</th>
-                  <th scope="col">Recall</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                <tr>
-                  <th scope="row">1<br/><span class="badge badge-light">Oct 8, 2020</span></th>
-                  <td>BERT&#43;CRF (single) 
-                    <span class="badge badge-primary" data-toggle="tooltip" data-placement="right" title="Average score over 10 runs.">10</span><br/>
-                    Tsinghua University<br/>
-                    
-                      [<a href="https://www.aclweb.org/anthology/2020.emnlp-main.129/" target="_blank">paper</a>]
-                    
-                    
-                      [<a href="https://github.com/THU-KEG/MAVEN-dataset" target="_blank">code</a>]
-                    
-                  </td>
-                  <td>67.8</td>
-                  <td>65</td>
-                  <td>70.9</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-                
-                <tr>
-                  <th scope="row">2<br/><span class="badge badge-light">Oct 8, 2020</span></th>
-                  <td>DMBERT (single) 
-                    <span class="badge badge-primary" data-toggle="tooltip" data-placement="right" title="Average score over 10 runs.">10</span><br/>
-                    Tsinghua University<br/>
-                    
-                      [<a href="https://www.aclweb.org/anthology/N19-1105/" target="_blank">paper</a>]
-                    
-                    
-                      [<a href="https://github.com/THU-KEG/MAVEN-dataset" target="_blank">code</a>]
-                    
-                  </td>
-                  <td>67.1</td>
-                  <td>62.7</td>
-                  <td>72.3</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-                
-                <tr>
-                  <th scope="row">3<br/><span class="badge badge-light">Oct 8, 2020</span></th>
-                  <td>BiLSTM&#43;CRF (single) 
-                    <span class="badge badge-primary" data-toggle="tooltip" data-placement="right" title="Average score over 10 runs.">10</span><br/>
-                    Tsinghua University<br/>
-                    
-                      [<a href="https://www.aclweb.org/anthology/2020.emnlp-main.129/" target="_blank">paper</a>]
-                    
-                    
-                      [<a href="https://github.com/THU-KEG/MAVEN-dataset" target="_blank">code</a>]
-                    
-                  </td>
-                  <td>64.1</td>
-                  <td>63.4</td>
-                  <td>64.8</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-                
-                <tr>
-                  <th scope="row">4<br/><span class="badge badge-light">Oct 8, 2020</span></th>
-                  <td>MOGANED (single) (reproduced) 
-                    <span class="badge badge-primary" data-toggle="tooltip" data-placement="right" title="Average score over 10 runs.">10</span><br/>
-                    Chinese Academy of Science<br/>
-                    
-                      [<a href="https://www.aclweb.org/anthology/D19-1582/" target="_blank">paper</a>]
-                    
-                    
-                      [<a href="https://github.com/THU-KEG/MAVEN-dataset" target="_blank">code</a>]
-                    
-                  </td>
-                  <td>63.8</td>
-                  <td>63.4</td>
-                  <td>64.1</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-                
-                <tr>
-                  <th scope="row">5<br/><span class="badge badge-light">Oct 8, 2020</span></th>
-                  <td>BiLSTM (single) 
-                    <span class="badge badge-primary" data-toggle="tooltip" data-placement="right" title="Average score over 10 runs.">10</span><br/>
-                    Tsinghua University<br/>
-                    
-                      [<a href="https://www.aclweb.org/anthology/2020.emnlp-main.129/" target="_blank">paper</a>]
-                    
-                    
-                      [<a href="https://github.com/THU-KEG/MAVEN-dataset" target="_blank">code</a>]
-                    
-                  </td>
-                  <td>62.8</td>
-                  <td>59.8</td>
-                  <td>67</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-                
-                <tr>
-                  <th scope="row">6<br/><span class="badge badge-light">Oct 8, 2020</span></th>
-                  <td>DMCNN (single) (reproduced) 
-                    <span class="badge badge-primary" data-toggle="tooltip" data-placement="right" title="Average score over 10 runs.">10</span><br/>
-                    Chinese Academy of Science<br/>
-                    
-                      [<a href="https://www.aclweb.org/anthology/P15-1017/" target="_blank">paper</a>]
-                    
-                    
-                      [<a href="https://github.com/THU-KEG/MAVEN-dataset" target="_blank">code</a>]
-                    
-                  </td>
-                  <td>60.6</td>
-                  <td>66.3</td>
-                  <td>55.9</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-                
-              </tbody>
-            </table>
-          </div>
-        </div>
+        
       </div>
       
       
@@ -384,7 +213,7 @@ Chinese web pages. It is collected by researcher at Harbin Institute of Technolo
         <ul class="list-inline text-center">
 
           <li class="list-inline-item">
-            <a href="#">
+            <a href="https://github.com/open-event-hub/title2event.github.io">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fab fa-github fa-stack-1x fa-inverse"></i>
@@ -392,7 +221,7 @@ Chinese web pages. It is collected by researcher at Harbin Institute of Technolo
             </a>
           </li>
         </ul>
-        <p class="copyright text-muted">Copyright &copy; THUKEG 2020</p>
+        <p class="copyright text-muted">Copyright &copy; Title2Event 2022</p>
       </div>
     </div>
   </div>
