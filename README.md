@@ -12,6 +12,7 @@ The website is hosted on Github. The url is <https://open-event-hub.github.io/ti
 
 * https://gohugo.io/getting-started/installing/
 
+ <!-- 
 ## 本项目hugo零基础跑法，这一节后面删掉
 0. 安装hugo
 1. clone本项目到本地
@@ -22,6 +23,7 @@ The website is hosted on Github. The url is <https://open-event-hub.github.io/ti
 6. `sh action.sh` 会自动生成public，并且推送到`gh-pages`分支
 7. 等待自动部署，可以在github页面搜索Actions进去看具体部署情况，一分钟多就ok了
 8. 查看效果 https://open-event-hub.github.io/title2event
+-->
 
 ## 修改leaderboard,这里待修改
 
