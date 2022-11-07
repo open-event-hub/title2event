@@ -25,7 +25,7 @@ The website is hosted on Github. The url is <https://open-event-hub.github.io/ti
 8. 查看效果 https://open-event-hub.github.io/title2event
 -->
 
-## 修改leaderboard,这里待修改
+## 修改leaderboard
 
 1. 更改`data/leaderboard.json`
 2. 运行`hugo server`本地查看效果
@@ -33,4 +33,4 @@ The website is hosted on Github. The url is <https://open-event-hub.github.io/ti
 4. 运行`git add .`添加修改
 5. 运行`git commit -m 'xxxx'`保存修改
 6. 运行`git push origin master`将代码提交到远程仓库
-7. 运行`sh action.sh`将表更的网页推送到gh-pages分支，等待部署，大约1分钟后可在<https://open-event-hub.github.io/title2event>查看效果
+7. 运行`sh action.sh`将更新的网页推送到gh-pages分支，等待部署，大约1分钟后可在<https://open-event-hub.github.io/title2event>查看效果
