@@ -5,7 +5,7 @@ canonifyurls = true
 
 [params]
   description = "Benchmarking Open Event Extraction with a Large-scale Chinese Title Dataset."
-  bannerImage = "/title2event/img/star1.png"
+  bannerImage = "/title2event/img/star.png"
   logoImage = "/img/t2e-logo.png"
 
 [menu]
