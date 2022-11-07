@@ -1,15 +1,15 @@
 [
     {
-        "Methods": "SeqTag",
-        "Trigger_P": 69.3,
-        "Trigger_R": 70.6,
-        "Trigger_F1": 69.9,
-        "Argument_P": 50.8,
-        "Argument_R": 51.2,
-        "Argument_F1": 51.0,
-        "Triplet_P": 41.1,
-        "Triplet_R": 41.3,
-        "Triplet_F1": 41.2
+        "Methods": "ST-Seq2SeqMRC",
+        "Trigger_P": "-",
+        "Trigger_R": "-",
+        "Trigger_F1": "-",
+        "Argument_P": 57.9,
+        "Argument_R": 58.6,
+        "Argument_F1": 58.2,
+        "Triplet_P": 49.8,
+        "Triplet_R": 50.1,
+        "Triplet_F1": 49.9
     },
     {
         "Methods": "ST-SpanMRC",
@@ -24,16 +24,16 @@
         "Triplet_F1": 44.7
     },
     {
-        "Methods": "ST-Seq2SeqMRC",
-        "Trigger_P": "-",
-        "Trigger_R": "-",
-        "Trigger_F1": "-",
-        "Argument_P": 57.9,
-        "Argument_R": 58.6,
-        "Argument_F1": 58.2,
-        "Triplet_P": 49.8,
-        "Triplet_R": 50.1,
-        "Triplet_F1": 49.9
+        "Methods": "SeqTag",
+        "Trigger_P": 69.5,
+        "Trigger_R": 69.9,
+        "Trigger_F1": 69.7,
+        "Argument_P": 50.8,
+        "Argument_R": 51.2,
+        "Argument_F1": 51.0,
+        "Triplet_P": 41.1,
+        "Triplet_R": 41.3,
+        "Triplet_F1": 41.2
     },
     {
         "Methods": "Unsuper",
