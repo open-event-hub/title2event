@@ -25,7 +25,7 @@ The website is hosted on Github. The url is <https://open-event-hub.github.io/ti
 8. 查看效果 https://open-event-hub.github.io/title2event
 -->
 
-## 修改leaderboard
+## 修改leaderboard （可能需要联系作者添加为collaborator角色）
 
 1. 更改`data/leaderboard.json`
 2. 运行`hugo server`本地查看效果
