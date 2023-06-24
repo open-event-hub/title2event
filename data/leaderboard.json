@@ -1,5 +1,17 @@
 [
     {
+        "Methods": "EventGLM_gwn",
+        "Trigger_P": 70.4,
+        "Trigger_R": 70.7,
+        "Trigger_F1": 70.5,
+        "Argument_P": 58.5,
+        "Argument_R": 58.3,
+        "Argument_F1": 58.4,
+        "Triplet_P": 50.0,
+        "Triplet_R": 50.2,
+        "Triplet_F1": 50.2
+    },
+    {
         "Methods": "ST-Seq2SeqMRC",
         "Trigger_P": "-",
         "Trigger_R": "-",
